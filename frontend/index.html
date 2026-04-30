@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BIS SmartStandards — Find the Right BIS Standard in Seconds</title>
+    <meta name="description" content="Find the correct BIS standard for your product in seconds using AI.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="lang-selector-container">
+        <svg class="lang-icon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 4h8a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2H8l-4 3v-3a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z" fill="transparent"></path>
+            <text x="8" y="11" font-size="7" font-weight="bold" font-family="sans-serif" stroke="none" fill="white" text-anchor="middle">अ</text>
+            <path d="M20 10h-8a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2v3l4-3h2a2 2 0 0 0 2-2v-6a2 2 0 0 0-2-2z" fill="#06142e"></path>
+            <text x="16" y="17" font-size="7" font-weight="bold" font-family="sans-serif" stroke="none" fill="white" text-anchor="middle">A</text>
+        </svg>
+        <select id="language-selector" class="lang-selector">
+            <option value="en">English</option>
+            <option value="hi">हिन्दी (Hindi)</option>
+            <option value="ta">தமிழ் (Tamil)</option>
+            <option value="te">తెలుగు (Telugu)</option>
+            <option value="ml">മലയാളം (Malayalam)</option>
+        </select>
+    </div>
+
+    <div class="container">
+        <header>
+            <div class="slideshow">
+                <div class="slideshow-image" style="background-image: url('assets/bis_lab.png');"></div>
+                <div class="slideshow-image" style="background-image: url('assets/bis_construction.png');"></div>
+                <div class="slideshow-image" style="background-image: url('assets/bis_manufacturing.png');"></div>
+                <div class="slideshow-image" style="background-image: url('assets/bis_engineers.png');"></div>
+                <div class="slideshow-image" style="background-image: url('assets/bis_quality.png');"></div>
+            </div>
+            <div class="header-overlay"></div>
+            <div class="logo-container">
+                <img src="assets/logo.png" alt="BIS Shield Logo" class="logo-image">
+                <h1>BIS Smart Standards</h1>
+            </div>
+            <h2>Find the Right BIS Standard in Seconds</h2>
+            <p class="subtitle">AI-powered recommendation engine for Indian Micro and Small Enterprises</p>
+        </header>
+
+        <main>
+            <!-- About & How to Use Section -->
+            <section class="card info-section">
+                <div class="info-grid">
+                    <div class="about-box">
+                        <h3>
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--secondary)"
+                                stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <line x1="12" y1="16" x2="12" y2="12"></line>
+                                <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                            </svg>
+                            About
+                        </h3>
+                        <p>This intelligent system empowers Indian Micro and Small Enterprises (MSEs) to instantly
+                            identify applicable Bureau of Indian Standards (BIS) regulations for their building
+                            materials. Powered by advanced AI (RAG), it strictly prevents hallucinations and provides
+                            perfectly accurate standard matches in seconds.</p>
+                    </div>
+                    <div class="how-to-use-box">
+                        <h3>
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--primary)"
+                                stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+                                <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                            </svg>
+                            How to Use
+                        </h3>
+                        <ol class="steps-list">
+                            <li><strong>Option A (File Upload):</strong> Download the PDF template, fill it in, and
+                                upload it below.</li>
+                            <li><strong>Option B (Direct Input):</strong> Skip the document and type your product
+                                details directly into the submission form.</li>
+                            <li><strong>Analysis:</strong> Click "Analyze" to instantly retrieve your standards and a
+                                downloadable compliance report.</li>
+                        </ol>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Workflow: Template Download & Upload -->
+            <div class="form-workflow" style="margin-top: 2rem;">
+                <section class="card download-section">
+                    <h3>1. Download Form Template</h3>
+                    <p class="help-text">Download our standard product information template.</p>
+                    <div class="button-group">
+                        <a href="/api/template/pdf" class="secondary-btn" download="BIS_Product_Information_Form.pdf">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                <polyline points="14 2 14 8 20 8"></polyline>
+                                <line x1="12" y1="18" x2="12" y2="12"></line>
+                                <polyline points="9 15 12 18 15 15"></polyline>
+                            </svg>
+                            Download PDF Template
+                        </a>
+                    </div>
+                </section>
+
+                <section class="card upload-section">
+                    <h3>2. Upload Completed Form</h3>
+                    <p class="help-text">Upload your filled document (Max 10MB, PDF or DOCX).</p>
+
+                    <div class="file-upload-wrapper" id="drop-zone">
+                        <input type="file" id="file-upload"
+                            accept=".pdf,.docx,application/pdf,application/vnd.openxmlformats-officedocument.wordprocessingml.document">
+                        <div class="upload-content">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                <polyline points="17 8 12 3 7 8"></polyline>
+                                <line x1="12" y1="3" x2="12" y2="15"></line>
+                            </svg>
+                            <span class="upload-text">Drag & drop or click to browse</span>
+                            <span class="file-name" id="file-name">No file chosen</span>
+                        </div>
+                    </div>
+
+                    <button id="btn-file-upload" class="primary-btn" disabled>
+                        <span>Analyze Document</span>
+                    </button>
+                </section>
+            </div>
+
+            <div class="divider" style="margin: 2rem 0;">
+                <span>OR</span>
+            </div>
+
+            <!-- Workflow 2: Direct Form Input -->
+            <section class="card form-section" id="direct-input-section">
+                <h3>Direct Product Submission</h3>
+                <p class="help-text">Fill in the details below to receive instant recommendations without uploading a
+                    document.</p>
+                <div class="input-grid">
+                    <div class="input-group">
+                        <label>Product Name:</label>
+                        <input type="text" id="inp-product-name" placeholder="e.g., UltraTech Cement">
+                    </div>
+                    <div class="input-group">
+                        <label>Product Category:</label>
+                        <input type="text" id="inp-product-category" placeholder="e.g., Building Materials">
+                    </div>
+                    <div class="input-group" style="grid-column: 1 / -1;">
+                        <label>Manufacturer / Company Name:</label>
+                        <input type="text" id="inp-manufacturer" placeholder="e.g., UltraTech">
+                    </div>
+                    <div class="input-group" style="grid-column: 1 / -1;">
+                        <label>PRODUCT DESCRIPTION:</label>
+                        <textarea id="inp-description" rows="4"
+                            placeholder="Describe the product components and usage..."></textarea>
+                    </div>
+                </div>
+                <button id="btn-submit-form" class="primary-btn">Analyze Product Details</button>
+            </section>
+
+            <!-- Loading & Error States -->
+            <div id="loading" class="loading-state hidden">
+                <div class="spinner"></div>
+                <p>Analyzing product specifications...</p>
+            </div>
+
+            <!-- Error State -->
+            <div id="error-message" class="error-message hidden"></div>
+
+            <!-- Results Section -->
+            <section id="results-container" class="results-container hidden">
+                <div class="results-header">
+                    <h2>Recommended BIS Standards</h2>
+                    <span id="response-time" class="badge"></span>
+                </div>
+                <div id="results-list" class="results-list">
+                    <!-- Cards will be injected here -->
+                </div>
+                <div class="report-actions" style="margin-top: 1.5rem; text-align: center;">
+                    <button id="btn-download-report" class="primary-btn"
+                        style="display: inline-flex; width: auto; padding: 0.75rem 2rem;">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" style="margin-right: 0.5rem;">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="7 10 12 15 17 10"></polyline>
+                            <line x1="12" y1="15" x2="12" y2="3"></line>
+                        </svg>
+                        Download Detailed Report (PDF)
+                    </button>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p><span data-i18n="footer1">&copy; 2026 BIS SmartStandards AI Engine. Built for Indian
+                    MSEs.</span><br><span data-i18n="footer2">Developed and maintained by</span> <a
+                    href="https://krishnakanth-portfolio47.vercel.app/" target="_blank"
+                    rel="noopener noreferrer">Krishnakanth J</a></p>
+        </footer>
+    </div>
+
+    <!-- AI Chatbot Assistant -->
+    <div class="chatbot-container" id="chatbot-container">
+        <button class="chatbot-toggle" id="chatbot-toggle" title="Ask BIS Assistant">
+            <img src="assets/bot_icon.png" alt="Chatbot Mascot" class="chatbot-avatar">
+        </button>
+        <div class="chatbot-panel hidden" id="chatbot-panel">
+            <div class="chatbot-header">
+                <div>
+                    <h4 data-i18n="chatTitle">BIS Smart Assistant</h4>
+                    <p data-i18n="chatDesc">Ask questions about BIS standards or your product.</p>
+                </div>
+                <button class="chatbot-close" id="chatbot-close">&times;</button>
+            </div>
+            <div class="chatbot-messages" id="chatbot-messages">
+                <div class="message bot">
+                    <div class="message-bubble" data-i18n="chatWelcome">Hello! I am the BIS Smart Assistant. How can I
+                        help you today?</div>
+                </div>
+            </div>
+            <div class="chatbot-suggestions" id="chatbot-suggestions">
+                <button class="chat-suggestion-btn" data-action="identify" data-i18n="sug1">Identify BIS standard for my
+                    product</button>
+                <button class="chat-suggestion-btn" data-action="form" data-i18n="sug2">Help me fill the form</button>
+                <button class="chat-suggestion-btn" data-action="explain" data-i18n="sug3">Explain this
+                    recommendation</button>
+            </div>
+            <div class="chatbot-input">
+                <input type="text" id="chat-input" placeholder="Type your message..." maxlength="2000">
+                <button id="chat-send" data-i18n="chatSend">Send</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="translations.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

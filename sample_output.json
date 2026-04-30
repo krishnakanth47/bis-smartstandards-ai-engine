@@ -1,0 +1,84 @@
+[
+  {
+    "id": "query_1",
+    "retrieved_standards": [
+      {
+        "standard": "IS 269",
+        "reason": "Ordinary Portland Cement - Specification"
+      },
+      {
+        "standard": "IS 8112",
+        "reason": "43 Grade Ordinary Portland Cement"
+      },
+      {
+        "standard": "IS 456",
+        "reason": "Plain and Reinforced Concrete - Code of Practice"
+      }
+    ],
+    "latency_seconds": 0.3
+  },
+  {
+    "id": "query_2",
+    "retrieved_standards": [
+      {
+        "standard": "IS 269",
+        "reason": "Ordinary Portland Cement - Specification"
+      },
+      {
+        "standard": "IS 8112",
+        "reason": "43 Grade Ordinary Portland Cement"
+      },
+      {
+        "standard": "IS 456",
+        "reason": "Plain and Reinforced Concrete - Code of Practice"
+      }
+    ],
+    "latency_seconds": 0.2
+  },
+  {
+    "id": "query_3",
+    "retrieved_standards": [
+      {
+        "standard": "IS 10262",
+        "reason": "Concrete Mix Proportioning - Guidelines"
+      },
+      {
+        "standard": "IS 383",
+        "reason": "Coarse and Fine Aggregate from Natural Sources"
+      }
+    ],
+    "latency_seconds": 0.19
+  },
+  {
+    "id": "query_4",
+    "retrieved_standards": [
+      {
+        "standard": "IS 10262",
+        "reason": "Concrete Mix Proportioning - Guidelines"
+      },
+      {
+        "standard": "IS 383",
+        "reason": "Coarse and Fine Aggregate from Natural Sources"
+      }
+    ],
+    "latency_seconds": 0.17
+  },
+  {
+    "id": "query_5",
+    "retrieved_standards": [
+      {
+        "standard": "IS 269",
+        "reason": "Ordinary Portland Cement - Specification"
+      },
+      {
+        "standard": "IS 8112",
+        "reason": "43 Grade Ordinary Portland Cement"
+      },
+      {
+        "standard": "IS 456",
+        "reason": "Plain and Reinforced Concrete - Code of Practice"
+      }
+    ],
+    "latency_seconds": 0.18
+  }
+]

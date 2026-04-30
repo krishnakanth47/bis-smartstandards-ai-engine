@@ -1,0 +1,22 @@
+[
+  {
+    "id": "query_1",
+    "query": "Portland cement for residential building construction"
+  },
+  {
+    "id": "query_2",
+    "query": "TMT steel bars for RCC structure reinforcement"
+  },
+  {
+    "id": "query_3",
+    "query": "fine aggregate sand for concrete mix"
+  },
+  {
+    "id": "query_4",
+    "query": "concrete mix design for M20 grade"
+  },
+  {
+    "id": "query_5",
+    "query": "Portland pozzolana cement for durability"
+  }
+]
