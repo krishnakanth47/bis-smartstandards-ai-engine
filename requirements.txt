@@ -28,5 +28,5 @@ python-multipart==0.0.6
 reportlab==4.0.9
 
 # Build stability (IMPORTANT)
-setuptools
+setuptools>=65.0.0
 wheel
