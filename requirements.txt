@@ -1,13 +1,10 @@
-# BIS Standards RAG Engine
-# Requirements for the BIS Recommendation Engine
-
 # Core dependencies
-faiss-cpu==1.13.1
-numpy==1.24.3
+faiss-cpu==1.13.2
+numpy==1.24.4
 pandas==2.0.3
 
-# Sentence transformers (includes transformers, torch)
-sentence-transformers>=2.2.2
+# Sentence transformers
+sentence-transformers==2.2.2
 
 # PDF processing
 pypdf==3.9.0
@@ -21,7 +18,7 @@ uvicorn==0.24.0
 tiktoken==0.5.2
 tenacity==8.2.3
 
-# For evaluation
+# Evaluation
 scikit-learn==1.3.2
 
 # Document Processing
@@ -29,3 +26,7 @@ PyMuPDF==1.23.6
 python-docx==1.1.0
 python-multipart==0.0.6
 reportlab==4.0.9
+
+# Build stability (IMPORTANT)
+setuptools
+wheel
