@@ -1,3 +1,4 @@
+from fastapi.middleware.cors import CORSMiddleware
 from fastapi import FastAPI, HTTPException, UploadFile, File
 from fastapi.staticfiles import StaticFiles
 from fastapi.middleware.cors import CORSMiddleware
@@ -28,10 +29,11 @@ logger = logging.getLogger(__name__)
 
 app = FastAPI(title="BIS SmartStandards API")
 
-# Enable CORS for frontend development
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=[
+        "https://bis-smartstandards.netlify.app"
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -359,7 +361,7 @@ async def generate_report_endpoint(req: ReportRequest):
 
 # Mount the frontend directory so FastAPI serves the HTML/CSS/JS
 os.makedirs("frontend", exist_ok=True)
-app.mount("/", StaticFiles(directory="frontend", html=True), name="frontend")
+
 
 # Automatically copy generated bot icon and slideshow images for frontend
 import shutil
