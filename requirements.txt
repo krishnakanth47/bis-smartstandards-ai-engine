@@ -5,7 +5,11 @@ pandas==2.0.3
 
 # ML / embeddings
 sentence-transformers==2.2.2
-torch==2.0.1
+torch==2.1.2
+
+# 🔥 FIX: add compatible versions
+huggingface-hub==0.14.1
+transformers==4.30.2
 
 # PDF processing
 pypdf==3.9.0
