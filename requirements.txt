@@ -1,10 +1,11 @@
 # Core dependencies
-faiss-cpu==1.13.2
+faiss-cpu==1.7.4
 numpy==1.24.3
 pandas==2.0.3
 
-# Sentence transformers
+# ML / embeddings
 sentence-transformers==2.2.2
+torch==2.0.1
 
 # PDF processing
 pypdf==3.9.0
@@ -12,7 +13,9 @@ pdfminer.six==20221105
 
 # API and serving
 fastapi==0.104.1
-uvicorn==0.24.0
+uvicorn[standard]==0.24.0
+jinja2
+aiofiles
 
 # Utilities
 tiktoken==0.5.2
@@ -27,6 +30,6 @@ python-docx==1.1.0
 python-multipart==0.0.6
 reportlab==4.0.9
 
-# Build stability (IMPORTANT)
+# Build stability
 setuptools>=65.0.0
 wheel
