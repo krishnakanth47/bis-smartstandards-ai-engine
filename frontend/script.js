@@ -1,10 +1,11 @@
 document.addEventListener('DOMContentLoaded', () => {
     // Elements
+    const BASE_URL = "https://bis-smartstandards-ai-engine-2.onrender.com";
     const fileInput = document.getElementById('file-upload');
     const fileBtn = document.getElementById('btn-file-upload');
     const dropZone = document.getElementById('drop-zone');
     const fileNameDisplay = document.getElementById('file-name');
-    
+
     const loadingState = document.getElementById('loading');
     const errorMessage = document.getElementById('error-message');
     const resultsContainer = document.getElementById('results-container');
@@ -17,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentMetadata = {};
 
     // --- Workflow: File Upload ---
-    
+
     // Drag and Drop
     ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
         dropZone.addEventListener(eventName, preventDefaults, false);
@@ -48,16 +49,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function handleFileSelection(files) {
         if (files.length === 0) return;
-        
+
         const file = files[0];
-        
+
         // Validate type
         const validTypes = [
-            'application/pdf', 
+            'application/pdf',
             'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
             '.pdf', '.docx'
         ];
-        
+
         if (!file.name.toLowerCase().endsWith('.pdf') && !file.name.toLowerCase().endsWith('.docx')) {
             showError("Only PDF and DOCX files are supported.");
             selectedFile = null;
@@ -65,7 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
             fileBtn.disabled = true;
             return;
         }
-        
+
         // Validate size (10MB)
         if (file.size > 10 * 1024 * 1024) {
             showError("File exceeds the 10MB limit.");
@@ -91,7 +92,7 @@ document.addEventListener('DOMContentLoaded', () => {
         formData.append('file', selectedFile);
 
         try {
-            const response = await fetch('/upload', {
+            const response = await fetch(`${BASE_URL}/upload`, {
                 method: 'POST',
                 body: formData
             });
@@ -110,7 +111,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- Workflow 2: Direct Form Input ---
     const submitFormBtn = document.getElementById('btn-submit-form');
-    
+
     if (submitFormBtn) {
         submitFormBtn.addEventListener('click', async () => {
             const pName = document.getElementById('inp-product-name').value.trim();
@@ -129,7 +130,7 @@ document.addEventListener('DOMContentLoaded', () => {
             submitFormBtn.disabled = true;
 
             try {
-                const response = await fetch('/predict', {
+                const response = await fetch(`${BASE_URL}/predict`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ text: combinedText })
@@ -142,7 +143,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 const data = await response.json();
                 displayResults(data);
-                
+
                 // Clear the file selection if there was any
                 selectedFile = null;
                 if (fileNameDisplay) {
@@ -160,16 +161,16 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- Report Generation ---
     downloadReportBtn.addEventListener('click', async () => {
         if (currentStandards.length === 0) return;
-        
+
         const originalText = downloadReportBtn.innerHTML;
         downloadReportBtn.innerHTML = 'Generating PDF... <div class="spinner" style="width: 16px; height: 16px; border-width: 2px; margin: 0 0 0 8px;"></div>';
         downloadReportBtn.disabled = true;
 
         try {
-            const response = await fetch('/generate-report', {
+            const response = await fetch(`${BASE_URL}/generate-report`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ 
+                body: JSON.stringify({
                     query_text: "Analyzed from uploaded document",
                     standards: currentStandards,
                     metadata: currentMetadata
@@ -180,13 +181,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const blob = await response.blob();
             const url = window.URL.createObjectURL(blob);
-            
+
             // Extract filename from Content-Disposition if present
             let filename = "BIS_SmartStandards_Report.pdf";
             const disposition = response.headers.get('content-disposition');
             if (disposition && disposition.indexOf('filename=') !== -1) {
                 const matches = /filename[^;=\n]*=((['"]).*?\2|[^;\n]*)/.exec(disposition);
-                if (matches != null && matches[1]) { 
+                if (matches != null && matches[1]) {
                     filename = matches[1].replace(/['"]/g, '');
                 }
             }
@@ -197,7 +198,7 @@ document.addEventListener('DOMContentLoaded', () => {
             a.download = filename;
             document.body.appendChild(a);
             a.click();
-            
+
             window.URL.revokeObjectURL(url);
         } catch (error) {
             showError("Could not generate report: " + error.message);
@@ -237,9 +238,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function displayResults(data) {
         hideLoading();
-        
+
         const standards = data.recommended_standards || [];
-        
+
         if (standards.length === 0 || standards[0].standard === "No Match" || standards[0].standard === "No standard found") {
             showError("No matching BIS standard found. Please provide more details.");
             currentStandards = [];
@@ -260,11 +261,11 @@ document.addEventListener('DOMContentLoaded', () => {
         standards.forEach((std, index) => {
             const confPercent = Math.round((std.confidence || 0.8) * 100);
             const confColor = confPercent > 80 ? 'var(--success)' : (confPercent > 50 ? '#F59E0B' : 'var(--error)');
-            
+
             const card = document.createElement('div');
             card.className = 'result-card';
             card.style.animationDelay = `${index * 0.1}s`;
-            
+
             card.innerHTML = `
                 <div class="result-header">
                     <span class="result-standard">${std.standard}</span>
@@ -278,16 +279,16 @@ document.addEventListener('DOMContentLoaded', () => {
                     <strong>Reason:</strong> ${std.reason}
                 </div>
             `;
-            
+
             resultsList.appendChild(card);
         });
 
         resultsContainer.classList.remove('hidden');
-        
+
         // Scroll to results
         resultsContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
-    
+
     // Expose globally for the Chatbot in translations.js
     window.displayResultsGlobally = displayResults;
 });
