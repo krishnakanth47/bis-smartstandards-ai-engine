@@ -1,6 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
     // Elements
-    const BASE_URL = "https://bis-smartstandards-ai-engine-2.onrender.com";
     const fileInput = document.getElementById('file-upload');
     const fileBtn = document.getElementById('btn-file-upload');
     const dropZone = document.getElementById('drop-zone');
@@ -92,7 +91,7 @@ document.addEventListener('DOMContentLoaded', () => {
         formData.append('file', selectedFile);
 
         try {
-            const response = await fetch(`${BASE_URL}/upload`, {
+            const response = await fetch('/upload', {
                 method: 'POST',
                 body: formData
             });
@@ -130,7 +129,7 @@ document.addEventListener('DOMContentLoaded', () => {
             submitFormBtn.disabled = true;
 
             try {
-                const response = await fetch(`${BASE_URL}/predict`, {
+                const response = await fetch('/predict', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ text: combinedText })
@@ -167,7 +166,7 @@ document.addEventListener('DOMContentLoaded', () => {
         downloadReportBtn.disabled = true;
 
         try {
-            const response = await fetch(`${BASE_URL}/generate-report`, {
+            const response = await fetch('/generate-report', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
